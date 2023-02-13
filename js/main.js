@@ -33,13 +33,13 @@ function moveUp() {
 
 //função de descer..
 function moveDown() {
-    let topPosition = getComputedStyle(yourShip).getPropertyValue('top');
+    let topPosition = getComputedStyle(yourShip).getPropertyValue('top'); 
     if(topPosition === "510px"){
         return
     } else {
-        let position = parseInt(topPosition);
+        let position = parseInt(topPosition);  
         position += 50;
-        yourShip.style.top = `${position}px`;    
+        yourShip.style.top = `${position}px`;     
     }
 }
 
@@ -59,14 +59,17 @@ function createLaserElement() {
     newLaser.style.left = `${xPosition}px`;
     newLaser.style.top = `${yPosition - 10}px`;
     return newLaser;
-}
+}     
 // troca de imagem
 function moveLaser(laser) {
     let laserInterval = setInterval(() => {
         let xPosition = parseInt(laser.style.left);
         let aliens = document.querySelectorAll('.alien');
 
-        aliens.forEach((alien) => { //comparando se cada alien foi atingido, se sim, troca o src da imagem
+
+        //comparando se cada alien foi atingido, se sim, troca o src da imagem
+        
+        aliens.forEach((alien) => { 
             if(checkLaserCollision(laser, alien)) {
                 alien.src = 'img/explosion.png';
                 alien.classList.remove('alien');
